@@ -20,19 +20,17 @@
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ms-auto py-4 py-lg-0">
               <li class="nav-item">
-                <a class="nav-link px-lg-3 py-3 py-lg-4" to="/"> Home </a>
+                <router-link class="nav-link px-lg-3 py-3 py-lg-4" to="/"> Home </router-link>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-lg-3 py-3 py-lg-4" to="#">contatti</a>
+                <router-link class="nav-link px-lg-3 py-3 py-lg-4" to="/contact">contatti</router-link>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link px-lg-3 py-3 py-lg-4" to="#">Chi siamo</a>
+                <router-link class="nav-link px-lg-3 py-3 py-lg-4" to="/about">Chi siamo</router-link>
               </li>
 
-              <li class="nav-item">
-                <a class="nav-link px-lg-3 py-3 py-lg-4" href="#"> loghin </a>
-              </li>
+              
             </ul>
           </div>
         </div>

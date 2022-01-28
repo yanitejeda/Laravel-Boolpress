@@ -1,10 +1,13 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Home from './pages/Home.vue';
-import About from './pages/About.vue';
-import Contact from './pages/Contact.vue';
-import Posts from './pages/Posts.vue';
+ 
+
+import Home from '../js/components/pages/Home.vue';
+import About from '../js/components/pages/About.vue'
+import Contact from '../js/components/pages/Contact.vue'
+
+
 
 Vue.use(VueRouter);
 
@@ -15,7 +18,7 @@ const router = new VueRouter({
             path:'/',
             name:'home',
             component: Home,
-        },/* 
+        },
         {
             path:'/about',
             name:'about',
@@ -26,11 +29,7 @@ const router = new VueRouter({
             name:'contact',
             component: Contact,
         },
-        {
-            path:'/posts',
-            name:'posts',
-            component: Posts,
-        } */
+       
 
     ]
 })
