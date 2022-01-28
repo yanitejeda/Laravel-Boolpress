@@ -22,7 +22,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    @include('layouts.nav')
+  {{--   @include('layouts.nav') --}}
     <div class="container">
 
         <div id="root">
