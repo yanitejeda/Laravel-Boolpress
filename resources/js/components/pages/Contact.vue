@@ -1,15 +1,11 @@
 <template>
   <div>
-    <h1>Pagina contact</h1>
-    
-    
+
+    <Header titolo=" Pagina contatti" sottoTitolo=" sotto titolo"> </Header>
   </div>
 </template>
 
 <script>
-export default {
-  
-  
-
-}
+import Header from "../pages/pagesPart/Header.vue"
+export default {components:{ Header}};
 </script>

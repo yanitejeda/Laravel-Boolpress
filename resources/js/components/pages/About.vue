@@ -1,15 +1,18 @@
 <template>
   <div>
-    <h1>Pagina About</h1>
-    
-    
+    <Header
+      titolo="Chi siamo"
+      sottoTitolo="info su chi siamo"
+      imgUrl="img/avg.jpg"
+    >
+    </Header>
   </div>
 </template>
 
 <script>
-export default {
-  
-  
+import Header from "../pages/pagesPart/Header.vue";
 
-}
+export default {
+  components: { Header },
+};
 </script>

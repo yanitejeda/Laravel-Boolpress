@@ -1,37 +1,18 @@
 <template>
   <div>
-  
     <!-- header content -->
     <div>
-     <header class="masthead" style="background-image url='#'">
-        <div class="container position-relative text-center px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    <div class="site-heading">
-                        <h1>titolo</h1>
-                        <span class="subheading">
-                            <slot>
-                                sotto titolo
-                            </slot>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
+      <Header titolo="Home page" sottoTitolo="pagina principale"></Header>
     </div>
 
     <!-- main content -->
     <div class="text-center">
       <h1>{{ hollowMsg }}</h1>
-      <!--  <h2>{{listaPost}}</h2> -->
-      
-        <div v-for="(element, post) in listaPost" :key="post">
-        <!--  {{ element.title }}
-  -->
+
+      <div v-for="(element, post) in listaPost" :key="post">
+        <router-link :to="{ name: 'posts.show', params: { id: element.id } }">
           <div class="card">
-          <img src=" element.coverImg" class="card-img-top" alt="..." />
+            <img :src="element.coverImg" class="card-img-top" alt="..." />
             <div class="card-body">
               <h3 class="card-title">{{ element.title }}</h3>
               <h5>{{ element.subtitle }}</h5>
@@ -40,19 +21,23 @@
               <h6>{{ element.category }}</h6>
             </div>
           </div>
-        </div>
-
+        </router-link>
+      </div>
+      <!--  <PostComponent 
+            v-for="post in listaPost"
+            :key='post.id'>
+            </PostComponent> -->
     </div>
-
-    
-    
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import Header from "../pages/pagesPart/Header.vue";
+//import PostComponent from "../pages/pagesPart/PostComponent.vue";
 export default {
   name: "App",
+  components: { Header /* PostComponent */ },
   data() {
     return {
       hollowMsg: "pagina di benvenuto guest",
@@ -62,9 +47,9 @@ export default {
 
   mounted() {
     axios.get("/api/posts").then((resp) => {
-      console.log(resp.data);
+      // console.log(resp.data);
       this.listaPost = resp.data;
     });
   },
-}
+};
 </script>

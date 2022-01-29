@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Post;
-
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -43,18 +43,22 @@ class PostController extends Controller
         $request->validate([
             "title" => "required|min:3",
             "content" => "required",
-            "author" => "required|min:3",
             "category" => "required|min:3"
         ]);
 
         $data = $request->all();
 /* 
-        $post = new Post();
 
-        $post->fill($request->all());
-        $post->save(); */
+       /*  $post = Post::create([
+            ...$data,
+            "author_id" => Auth::user()->id
+        ]); */
+        
+        
+        $post = new Post($data);
+        $post->author_id = Auth::id();
 
-        $post = Post::create($data);
+        $post->save();
      /* return redirect()->with('completed','salvato correttamente');
        */  return redirect()->route("admin.posts.show", $post->id);
     }

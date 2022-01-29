@@ -16,11 +16,18 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('subtitle')->nullable();
+            
             $table->longtext('content');
-            $table->string('author');
+      
             $table->string('coverImg')->nullable();
             $table->string('category');
+
+            //creare relazione
+            $table->unsignedBigInteger('author_id');
+            $table->foreign('author_id')
+            ->references('id')
+            ->on('users');
+
             $table->timestamps();
         });
     }

@@ -29,7 +29,7 @@
               <li class="nav-item">
                 <router-link class="nav-link px-lg-3 py-3 py-lg-4" to="/about">Chi siamo</router-link>
               </li>
-
+              
               
             </ul>
           </div>
@@ -59,15 +59,9 @@ export default {
   data() {
     return {
        hollowMsg: "pagina di benvenuto guest",
-     /* listaPost: [], */
+    
     };
   },
-/* 
-  mounted() {
-    axios.get("/api/posts").then((resp) => {
-      console.log(resp.data);
-      this.listaPost = resp.data;
-    });
-  }, */
+
 };
 </script>
