@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function index(){
-        $listaPost = Post::all();
+        $listaPost = Post::with('category')->get();
         return response()->json($listaPost);
 
     }

@@ -2072,9 +2072,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
  //import PostComponent from "../pages/pagesPart/PostComponent.vue";
 
@@ -2983,15 +2980,9 @@ var render = function () {
                         _vm._v(_vm._s(element.title)),
                       ]),
                       _vm._v(" "),
-                      _c("h5", [_vm._v(_vm._s(element.subtitle))]),
-                      _vm._v(" "),
                       _c("p", { staticClass: "card-text" }, [
                         _vm._v(_vm._s(element.content)),
                       ]),
-                      _vm._v(" "),
-                      _c("h6", [_vm._v(_vm._s(element.author))]),
-                      _vm._v(" "),
-                      _c("h6", [_vm._v(_vm._s(element.category))]),
                     ]),
                   ]),
                 ]

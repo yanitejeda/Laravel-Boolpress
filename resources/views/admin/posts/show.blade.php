@@ -6,10 +6,14 @@
             <img src="{{ $post->coverImg }}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h3 class="card-title">{{ $post->title }}</h3>
-                <h5>{{ $post->subtitle }}</h5>
                 <p class="card-text">{{ $post->content }}</p>
                 <h6>{{ $post->author }}</h6>
-                <h6>{{ $post->category }}</h6>
+                <div class="form-group">
+                    <label class="form-label">categoria</label>
+                    <br>
+                    {{$post->category->name}}
+
+                </div>
 
                 <div class="d-flex">
 

@@ -15,10 +15,7 @@
             <img :src="element.coverImg" class="card-img-top" alt="..." />
             <div class="card-body">
               <h3 class="card-title">{{ element.title }}</h3>
-              <h5>{{ element.subtitle }}</h5>
               <p class="card-text">{{ element.content }}</p>
-              <h6>{{ element.author }}</h6>
-              <h6>{{ element.category }}</h6>
             </div>
           </div>
         </router-link>
