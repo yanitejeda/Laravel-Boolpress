@@ -2070,8 +2070,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
  //import PostComponent from "../pages/pagesPart/PostComponent.vue";
 
@@ -2983,6 +2981,12 @@ var render = function () {
                       _c("p", { staticClass: "card-text" }, [
                         _vm._v(_vm._s(element.content)),
                       ]),
+                      _vm._v(" "),
+                      element.category && element.category.name
+                        ? _c("p", { staticClass: "card-text" }, [
+                            _vm._v(_vm._s(element.category.name)),
+                          ])
+                        : _vm._e(),
                     ]),
                   ]),
                 ]

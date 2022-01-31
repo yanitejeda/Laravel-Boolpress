@@ -16,14 +16,12 @@
             <div class="card-body">
               <h3 class="card-title">{{ element.title }}</h3>
               <p class="card-text">{{ element.content }}</p>
+              <p v-if='element.category && element.category.name' class="card-text">{{ element.category.name }}</p>
             </div>
           </div>
         </router-link>
       </div>
-      <!--  <PostComponent 
-            v-for="post in listaPost"
-            :key='post.id'>
-            </PostComponent> -->
+     
     </div>
   </div>
 </template>
