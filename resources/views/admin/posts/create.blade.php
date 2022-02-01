@@ -4,7 +4,7 @@
 @section('content')
 
 <div class="container">
-    <form action='{{ route('admin.posts.store') }}' method="POST">
+    <form action='{{ route('admin.posts.store') }}' method="POST"  enctype='multipart/form-data'>
         @csrf
         <div class="mb-3">
             <label for="title" class="form-label">title</label>
@@ -13,7 +13,7 @@
         
         <div class="mb-3">
             <label for="coverImg" class="form-label">foto</label>
-            <input type="text" class="form-control" id="coverImg" name="coverImg">
+            <input type="file" class="form-control" id="coverImg" name="coverImg" value="{{old('coverImg')}}">
         </div>
         <div class="mb-3">
             <label for="content" class="form-label">content</label>

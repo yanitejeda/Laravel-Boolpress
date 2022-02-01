@@ -2070,6 +2070,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
  //import PostComponent from "../pages/pagesPart/PostComponent.vue";
 
@@ -2970,7 +2973,10 @@ var render = function () {
                   _c("div", { staticClass: "card" }, [
                     _c("img", {
                       staticClass: "card-img-top",
-                      attrs: { src: element.coverImg, alt: "..." },
+                      attrs: {
+                        src: "/storage/" + element.coverImg,
+                        alt: "...",
+                      },
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "card-body" }, [
@@ -3135,7 +3141,7 @@ var render = function () {
       _c("div", { staticClass: "card" }, [
         _c("img", {
           staticClass: "card-img-top",
-          attrs: { src: _vm.post.coverImg, alt: "..." },
+          attrs: { src: "/storage/" + _vm.post.coverImg, alt: "..." },
         }),
         _vm._v(" "),
         _c("div", { staticClass: "card-body" }, [

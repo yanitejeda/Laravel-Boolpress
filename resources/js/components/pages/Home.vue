@@ -12,7 +12,7 @@
       <div v-for="(element, post) in listaPost" :key="post">
         <router-link :to="{ name: 'posts.show', params: { id: element.id } }">
           <div class="card">
-            <img :src="element.coverImg" class="card-img-top" alt="..." />
+            <img :src="'/storage/' +element.coverImg" class="card-img-top" alt="..." />
             <div class="card-body">
               <h3 class="card-title">{{ element.title }}</h3>
               <p class="card-text">{{ element.content }}</p>
@@ -21,7 +21,10 @@
           </div>
         </router-link>
       </div>
-     
+      <!--  <PostComponent 
+            v-for="post in listaPost"
+            :key='post.id'>
+            </PostComponent> -->
     </div>
   </div>
 </template>

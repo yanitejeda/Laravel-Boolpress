@@ -45,6 +45,8 @@ return [
 
         'local' => [
             'driver' => 'local',
+
+            //dove vengono salvati i file non sono accessibili esternamente
             'root' => storage_path('app'),
         ],
 

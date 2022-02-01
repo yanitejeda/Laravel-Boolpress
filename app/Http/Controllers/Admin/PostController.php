@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
 use App\Category;
+use App\Tag;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Post;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -32,8 +33,12 @@ class PostController extends Controller
     {
         
         $categories = Category::all();
+        $tags = Tag::all();
 
-        return view("admin.posts.create",compact("categories"));
+        return view("admin.posts.create",
+        ["categories"=> $categories,
+         "tags"=>$tags
+        ]);
 
 
 
@@ -47,10 +52,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
+        /* dd($request->all()); */
         $request->validate([
             "title" => "required|min:3",
             "content" => "required",
-            "category" => "required|min:3"
         ]);
 
         $data = $request->all();
@@ -64,6 +70,11 @@ class PostController extends Controller
         
         $post = new Post($data);
         $post->author_id = Auth::id();
+
+        if($request->file('coverImg')){
+
+            $post->coverImg = Storage::put('posts',$data['coverImg']);
+        }
 
         $post->save();
      /* return redirect()->with('completed','salvato correttamente');
@@ -91,10 +102,12 @@ class PostController extends Controller
     {
         //$post = Post::findOrFail($id);
         $categories = Category::all();
+        $tags = Tag::all();
         
         return view('admin.posts.edit',[
             'post'=>$post,
             'categories'=>$categories,
+            'tags'=>$tags,
         ]);
     }
 
@@ -107,16 +120,32 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+       /*  dump($request->all());
+        return; */
         $post = Post::findOrFail($id);
         $data = $request->all();
+        $oldCoverImg = $post->coverImg;
+        $post->fill($data);
 
         Validator::make($data, [
             "title" => "unique:posts",
             "content" => "unique:posts",
         ])->validate();
 
-        $post->update($data);
+        //ricevo il file img dall'utente
+        if($request->file('coverImg')){
+            //se ho già a database un'immagine prima di salvare quella nuova cancello la precedente
+            if($oldCoverImg){
+                Storage::delete($oldCoverImg);
+            }
+         //  $post->coverImg = Storage::put('posts',$data['coverImg']);
+           $post->coverImg = $request->file('coverImg')->store('posts');
+        } 
+        
+        //salvo tutto
+       // $post->update($data);
 
+       $post->save();
         return redirect()->route('admin.posts.show', $post->id);
     }
 

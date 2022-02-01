@@ -6,7 +6,7 @@
     <h1>pagina show</h1>
 
     <div class="card">
-      <img :src="post.coverImg" class="card-img-top" alt="..." />
+      <img :src="'/storage/' +post.coverImg" class="card-img-top" alt="..." />
       <div class="card-body">
         <h3 class="card-title">{{ post.title }}</h3>
         <p class="card-text">{{ post.content }}</p>

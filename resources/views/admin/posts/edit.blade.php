@@ -5,7 +5,10 @@
     <div class="container">
 
 
-        <form action="{{ route('admin.posts.update', /* ['id'=> $Archives->id] */ $post->id) }}" method="post">
+        <form action="{{ route('admin.posts.update', /* ['id'=> $Archives->id] */ $post->id) }}" method="post"
+            enctype='multipart/form-data'>
+           {{-- da aggiungere l'attributo enctype x far funzionare l'uplode--}}
+           
             @csrf
             @method('put')
             <div class="mb-3">
@@ -15,7 +18,7 @@
            
             <div class="mb-3">
                 <label for="coverImg" class="form-label">foto</label>
-                <input type="text" class="form-control" id="coverImg" name="coverImg">
+                <input type="file" class="form-control" id="coverImg" name="coverImg">
             </div>
             <div class="mb-3">
                 <label for="content" class="form-label">content</label>
@@ -29,6 +32,13 @@
                 @endforeach
             </select>
 
+          {{--   <select name='tags[]' class="form-control" aria-label="Default select example">
+                <option selected>Tag</option>
+                @foreach ($tags as $tag)
+                    <option value="{{$tag->id}}"{{--  @if($tag->id === $post->tag) selected @endif >{{$tag->name}}</option>
+                @endforeach
+            </select>
+ --}}
             <button type="submit" class="btn btn-primary">Salva</button>
         </form>
 
