@@ -30,6 +30,9 @@ class SendContactMail extends Mailable
      */
     public function build()
     {
+
+        //return $this->mails('mails.sendContactMail'
+           
         return $this->view('mails.sendContactMail',[
             'data'=>$this->formData
         ]);

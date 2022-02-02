@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Mail\SendContactMail;
+
+use App\mail\SendContactMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
